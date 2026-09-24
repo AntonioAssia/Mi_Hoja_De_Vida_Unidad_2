@@ -1,0 +1,850 @@
+/* =========================================================
+   HOJA DE VIDA - EVER ANTONIO ASSIA IBAÑEZ
+   ESTILOS PRINCIPALES - UNIDAD 2
+========================================================= */
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --azul-oscuro: #07111f;
+    --azul: #2563eb;
+    --azul-claro: #38bdf8;
+    --azul-suave: #dbeafe;
+
+    --blanco: #ffffff;
+
+    --gris-fondo: #f4f7fb;
+    --gris-texto: #64748b;
+    --gris-oscuro: #1e293b;
+
+    --borde: rgba(148, 163, 184, 0.22);
+
+    --sombra:
+        0 20px 50px rgba(15, 23, 42, 0.10);
+
+    --radio: 22px;
+}
+
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+
+    background-color: var(--gris-fondo);
+
+    color: var(--gris-oscuro);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/* Selección de texto */
+
+::selection {
+    background-color: var(--azul-claro);
+
+    color: var(--azul-oscuro);
+}
+
+
+/* Barra de desplazamiento */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--azul),
+        var(--azul-claro)
+    );
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   BARRA DE NAVEGACIÓN
+   BOOTSTRAP + CSS
+========================= */
+
+.navbar {
+    min-height: 72px;
+
+    background-color: rgba(7, 17, 31, 0.94) !important;
+
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 8px 30px rgba(2, 6, 23, 0.16);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* Logo */
+
+.navbar-brand {
+    color: var(--azul-claro) !important;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+
+    text-shadow:
+        0 0 18px rgba(56, 189, 248, 0.7);
+}
+
+
+/* Menú */
+
+.navbar-nav {
+    gap: 8px;
+}
+
+.nav-link {
+    position: relative;
+
+    color: #e2e8f0 !important;
+
+    font-weight: 600;
+
+    padding: 10px 14px !important;
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+
+/* Línea debajo del enlace */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+
+    bottom: 4px;
+
+    height: 2px;
+
+    background-color: var(--azul-claro);
+
+    transform: scaleX(0);
+
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--azul-claro) !important;
+
+    background-color:
+        rgba(56, 189, 248, 0.08);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================
+   SECCIÓN HERO
+========================= */
+
+.hero {
+    min-height: calc(100vh - 72px);
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(56, 189, 248, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(37, 99, 235, 0.25),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020617,
+            #0f172a,
+            #172554
+        );
+
+    color: white;
+
+    padding: 80px 20px;
+}
+
+
+/* Círculos decorativos */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+
+    height: 280px;
+
+    top: -100px;
+
+    left: -80px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(56, 189, 248, 0.25);
+
+    box-shadow:
+        0 0 80px rgba(56, 189, 248, 0.12);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+
+    height: 350px;
+
+    right: -120px;
+
+    bottom: -170px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(96, 165, 250, 0.20);
+
+    box-shadow:
+        0 0 100px rgba(37, 99, 235, 0.18);
+}
+
+
+/* Contenido */
+
+.hero-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 100%);
+}
+
+
+/* =========================
+   FOTO DE PERFIL
+========================= */
+
+.foto-perfil {
+    width: 145px !important;
+
+    height: 145px !important;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--azul-claro);
+
+    padding: 4px;
+
+    background-color:
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 0 8px rgba(56, 189, 248, 0.08),
+        0 0 45px rgba(56, 189, 248, 0.38);
+
+    margin: 0 auto 28px;
+
+    display: block;
+
+    transition: 0.45s ease;
+}
+
+.foto-perfil:hover {
+    transform: scale(1.06) rotate(2deg);
+
+    box-shadow:
+        0 0 0 10px rgba(56, 189, 248, 0.10),
+        0 0 65px rgba(56, 189, 248, 0.55);
+}
+
+
+/* =========================
+   TEXTOS DEL HERO
+========================= */
+
+.saludo {
+    color: var(--azul-claro);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #dbeafe,
+            #38bdf8
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: clamp(19px, 3vw, 28px);
+
+    font-weight: 400;
+
+    color: #cbd5e1;
+
+    margin-bottom: 20px;
+}
+
+.ubicacion {
+    color: #bfdbfe;
+
+    font-size: 17px;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+.boton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--azul)
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.28);
+
+    transition: 0.3s ease;
+}
+
+.boton:hover {
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 35px rgba(37, 99, 235, 0.40);
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+.bienvenida {
+    max-width: 1150px;
+
+    margin: 80px auto;
+
+    padding: 0 30px;
+}
+
+
+/* Etiqueta */
+
+.etiqueta {
+    display: inline-block;
+
+    color: var(--azul);
+
+    background-color:
+        rgba(37, 99, 235, 0.08);
+
+    border:
+        1px solid rgba(37, 99, 235, 0.12);
+
+    border-radius: 50px;
+
+    padding: 7px 14px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Título */
+
+.texto-bienvenida h2 {
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    color: var(--gris-oscuro);
+
+    margin-bottom: 22px;
+}
+
+
+/* Párrafos */
+
+.texto-bienvenida p {
+    color: var(--gris-texto);
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjeta {
+    position: relative;
+
+    background-color:
+        rgba(255, 255, 255, 0.90);
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+
+    padding: 34px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.tarjeta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    top: -70px;
+
+    right: -70px;
+
+    border-radius: 50%;
+
+    background-color:
+        rgba(56, 189, 248, 0.10);
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.14);
+}
+
+
+/* Icono */
+
+.icono {
+    width: 76px;
+
+    height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 22px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0f2fe,
+            #dbeafe
+        );
+
+    font-size: 38px;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.12);
+
+    transition: 0.3s ease;
+}
+
+.tarjeta:hover .icono {
+    transform:
+        scale(1.08)
+        rotate(3deg);
+}
+
+
+/* Título de tarjeta */
+
+.tarjeta h3 {
+    color: var(--gris-oscuro);
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    margin-bottom: 16px;
+}
+
+.tarjeta p {
+    color: var(--gris-texto);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.formulario-contacto {
+    background-color: white;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+
+    padding: 35px;
+}
+
+.formulario-contacto h3 {
+    color: var(--gris-oscuro);
+
+    font-weight: 800;
+}
+
+.form-label {
+    color: #334155;
+
+    font-weight: 700;
+}
+
+.form-control {
+    min-height: 48px;
+
+    border:
+        1px solid #dbe3ee;
+
+    border-radius: 12px;
+
+    padding: 12px 15px;
+
+    background-color: #f8fafc;
+
+    transition: 0.25s ease;
+}
+
+.form-control:focus {
+    background-color: white;
+
+    border-color: var(--azul-claro);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(56, 189, 248, 0.12);
+}
+
+textarea.form-control {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* Botón formulario */
+
+.btn-enviar {
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    padding: 12px 24px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--azul)
+        ) !important;
+
+    color: white !important;
+
+    font-weight: 700 !important;
+
+    transition: 0.3s ease;
+}
+
+.btn-enviar:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer {
+    background-color: var(--azul-oscuro);
+
+    color: #94a3b8;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    margin-top: 90px;
+}
+
+footer::before {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    height: 3px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul-claro),
+            var(--azul)
+        );
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.pulse {
+    animation:
+        pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 8px
+            rgba(56, 189, 248, 0.08),
+            0 0 35px
+            rgba(56, 189, 248, 0.30);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 12px
+            rgba(56, 189, 248, 0.04),
+            0 0 55px
+            rgba(56, 189, 248, 0.50);
+    }
+}
+
+
+/* =========================
+   DISEÑO PARA CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 65px;
+    }
+
+    .navbar-nav {
+        padding-top: 12px;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+    .hero {
+        min-height:
+            calc(100vh - 65px);
+
+        padding: 70px 20px;
+    }
+
+    .foto-perfil {
+        width: 120px !important;
+
+        height: 120px !important;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .bienvenida {
+        margin: 55px auto;
+
+        padding: 0 20px;
+    }
+
+    .tarjeta,
+    .formulario-contacto {
+        padding: 26px;
+    }
+}
+
+
+/* =========================
+   REDUCIR ANIMACIONES
+   PARA USUARIOS QUE LO PREFIEREN
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
